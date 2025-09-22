@@ -47,12 +47,24 @@ namespace Lab2
 
             return answer;
         }
-        public double Task5(double x)
+                public double Task5(double x)
         {
             double answer = 0;
 
             // code here
-
+            double ch = 0;
+            double zn = 1;
+            double elem = ch / zn;
+            int i = 1;
+            do
+            {
+                ch += i;
+                zn *= x;
+                answer += elem;
+                elem = ch / zn;
+                i++;
+            } while (elem > 0.0001);
+            
             // end
 
             return answer;
@@ -62,6 +74,11 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            while (S < L)
+            {
+                answer += h;
+                S += S;
+            }
 
             // end
 
@@ -74,6 +91,28 @@ namespace Lab2
             int c = 0;
 
             // code here
+            double S1 = S;
+            double k = 0;
+            for (int i = 0; i < 7; i++)
+            {
+                a += S1;
+                S1 = S1 + S1 * I * 0.01;
+            }
+            S1 = S;
+            while (k < 100)
+            {
+                b += 1;
+                k += S1;
+                S1 = S1 + S1 * I * 0.01;
+            }
+            S1 = S;
+            while (S1 <= 42)
+            {
+                c += 1;
+                S1 = S1 + S1 * I * 0.01;
+            }
+
+
 
             // end
 
@@ -85,7 +124,15 @@ namespace Lab2
             double SY = 0;
 
             // code here
+            while (a <= b)
+            {
+                SY = SS + a * h;
+                if (SY < 0.0001)
+                    break;
+                
 
+                a += h;
+            }
             // end
 
             return (SS, SY);
