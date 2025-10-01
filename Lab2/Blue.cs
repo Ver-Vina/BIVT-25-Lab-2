@@ -7,26 +7,38 @@ namespace Lab2
     public class Blue
     {
         const double E = 0.0001;
-        public double Task1(int n, double x)
-        {
-            double answer = 0;
+         public double Task1(int n, double x)
+ {
+     double answer = 0;
 
-            // code here
+     // code here
+     double a = 1;
+     for (int i = 1; i <= n; i++) 
+     {
+         answer += Math.Sin(x*i)/a;
+         a *= x;
+     }
 
-            // end
+     // end
 
-            return answer;
-        }
-        public double Task2(int n)
-        {
-            double answer = 0;
+     return answer;
+ }
+ public double Task2(int n)
+ {
+     double answer = 0;
 
-            // code here
-
-            // end
-
-            return answer;
-        }
+     // code here
+     long a = 5;
+     long b = 1;
+     int c = -1;
+     for (int i = 1; i<=n;i++)
+     {
+         b *= i;
+         answer += (double) c*a/b;
+         a = 5*a;
+         c= (-1)*c;
+     }
+     // end
         public long Task3(int n)
         {
             long answer = 0;
@@ -139,3 +151,4 @@ namespace Lab2
         }
     }
 }
+
