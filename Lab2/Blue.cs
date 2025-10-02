@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
@@ -7,44 +7,58 @@ namespace Lab2
     public class Blue
     {
         const double E = 0.0001;
-         public double Task1(int n, double x)
- {
-     double answer = 0;
+        public double Task1(int n, double x)
+        {
+            double answer = 0;
 
-     // code here
-     double a = 1;
-     for (int i = 1; i <= n; i++) 
-     {
-         answer += Math.Sin(x*i)/a;
-         a *= x;
-     }
+            // code here
+            double a = 1;
+            for (int i = 1; i <= n; i++) 
+            {
+                answer += Math.Sin(x*i)/a;
+                a *= x;
+            }
 
-     // end
+            // end
 
-     return answer;
- }
- public double Task2(int n)
- {
-     double answer = 0;
+            return answer;
+        }
+        public double Task2(int n)
+        {
+            double answer = 0;
 
-     // code here
-     long a = 5;
-     long b = 1;
-     int c = -1;
-     for (int i = 1; i<=n;i++)
-     {
-         b *= i;
-         answer += (double) c*a/b;
-         a = 5*a;
-         c= (-1)*c;
-     }
-     // end
+            // code here
+
+            long a = 5;
+            long b = 1;
+            int c = -1;
+            for (int i = 1; i<=n;i++)
+            {
+                b *= i;
+                answer += (double) c*a/b;
+                a = 5*a;
+                c= (-1)*c;
+            }
+            // end
+
+            return answer;
+        }
         public long Task3(int n)
         {
             long answer = 0;
 
             // code here
 
+            long a = 0;
+            long b = 1;
+            for (int i = 0; i < (n-1); i++)
+            {
+                a += b;
+                a = a + b;
+                b = a - b;
+                a = a - b;
+                answer += a;
+            }
             // end
 
             return answer;
@@ -54,12 +68,20 @@ namespace Lab2
             int answer = 0;
 
             // code here
-
+            int i = 0;
+            long s = 0;
+            while (s <= L)
+            {
+                s += a + i * h;
+                answer += 1;
+                i++;
+            }
+            answer -= 1;
             // end
 
             return answer;
         }
-                public double Task5(double x)
+        public double Task5(double x)
         {
             double answer = 0;
 
@@ -76,7 +98,7 @@ namespace Lab2
                 elem = ch / zn;
                 i++;
             } while (elem > 0.0001);
-            
+
             // end
 
             return answer;
@@ -136,19 +158,31 @@ namespace Lab2
             double SY = 0;
 
             // code here
-            while (a <= b)
+            for (double x = a; x <= b; x = Math.Round(x + h, 7))
             {
-                SY = SS + a * h;
-                if (SY < 0.0001)
-                    break;
-                
+                double Yi = 1;
+                double Si = 1;
+                int i = 0;
 
-                a += h;
+                double fx = 1;
+
+                float fi = 1;
+                while (Math.Abs(Si) >= E)
+                {
+                    Si = (((2 * i + 1) * (fx * fx)) / (fi));
+                    i++;
+                    fi *= i;
+                    fx *= x;
+                    SS += Si;
+
+                    Yi = (1 + 2 * x * x) * Math.Pow(Math.E, (x * x));
+                }
+                SY += Yi;
             }
             // end
 
             return (SS, SY);
         }
     }
-}
 
+}
