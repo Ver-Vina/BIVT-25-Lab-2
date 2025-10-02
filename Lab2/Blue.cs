@@ -26,9 +26,8 @@ namespace Lab2
         public double Task2(int n)
         {
             double answer = 0;
-
+            
             // code here
-
             long a = 5;
             long b = 1;
             int c = -1;
@@ -98,7 +97,6 @@ namespace Lab2
                 elem = ch / zn;
                 i++;
             } while (elem > 0.0001);
-
             // end
 
             return answer;
@@ -113,7 +111,6 @@ namespace Lab2
                 answer += h;
                 S += S;
             }
-
             // end
 
             return answer;
@@ -145,9 +142,6 @@ namespace Lab2
                 c += 1;
                 S1 = S1 + S1 * I * 0.01;
             }
-
-
-
             // end
 
             return (a, b, c);
@@ -184,5 +178,4 @@ namespace Lab2
             return (SS, SY);
         }
     }
-
 }
